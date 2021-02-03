@@ -154,6 +154,7 @@ ALL=(
   slack-desktop
   snapd
   spotify
+  starship-bin
   steam
   superpaper
   system-config-printer
@@ -187,6 +188,11 @@ ALL=(
 
 function install_all {
   paru -S --needed $ALL
+  . "$HOME/.nvm/nvm.sh"
+  nvm install lts/fermium
+  npm i -g yarn http-server gen-secret netlify-cli
+  rustup toolchain install nightly
+  cargo install lolcate-rs spotify-tui exa bat fd-find ripgrep procs tokei mdcat
 }
 
 function clean {

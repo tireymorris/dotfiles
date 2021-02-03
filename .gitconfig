@@ -3,3 +3,5 @@
 	email = tireymorris@gmail.com
 [pull]
 	rebase = true
+[core]
+	editor = nvim

@@ -1,6 +1,6 @@
 # Load version control information
-autoload -Uz vcs_info
-precmd() { vcs_info }
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
 
 # autostart x at login
 if $(command -v systemctl &> /dev/null) && systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
@@ -12,10 +12,10 @@ fi
 zstyle ':vcs_info:git:*' formats '%b'
 
 # Set up the prompt
-unsetopt PROMPT_SP
-setopt PROMPT_SUBST
-PROMPT="%F{green}%n@%m%F{black}%B:%b%F{yellow}%~ %f\$vcs_info_msg_0_%F{magenta}
-%(!.#.$)%f " 
+# unsetopt PROMPT_SP
+# setopt PROMPT_SUBST
+# PROMPT="%F{green}%n@%m%F{black}%B:%b%F{yellow}%~ %f\$vcs_info_msg_0_%F{magenta}
+# %(!.#.$)%f " 
 
 # history
 HISTFILE=$HOME/.zsh_history
@@ -24,7 +24,7 @@ SAVEHIST=999999
 setopt appendhistory
 
 # set defaults
-export EDITOR='vim'
+export EDITOR='nvim'
 export BROWSER='/usr/bin/firefox'
 export LC_ALL=en_US.utf8
 export LANG=en_US.utf8
@@ -32,17 +32,6 @@ export LANG=en_US.utf8
 ssh_accept() {
     ssh-keyscan -H $1 >> $HOME/.ssh/known_hosts
 }
-
-# use colored output
-if [ -x /usr/bin/dircolors ]; then
-    test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias grep='grep --color=always'
-    alias egrep='egrep --color=auto'
-fi
-
 
 
 # Keybinds
@@ -84,7 +73,6 @@ function pacdate {
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias ap='ansible-playbook'
 alias b='brightnessctl s'
-alias bat='cat /sys/class/power_supply/BAT1/capacity'
 alias blu='redshift -x && redshift -O 6000'
 alias brewbak='brew bundle dump -f --file ~/.dotfiles/Brewfile'
 alias brewci='brew install --cask'
@@ -122,7 +110,6 @@ alias dun='killall dunst; dunst &'
 alias dwipe='docker rm $(docker ps -aq); docker rmi $(docker images -aq)'
 alias enable='sudo systemctl enable'
 alias ezsh='vim $HOME/.zshrc'
-alias find='lolcate'
 alias fixtime='timedatectl set-timezone America/Chicago && timedatectl set-ntp true'
 alias free='free -h'
 alias heroku_init='heroku git:remote -a' # append app name
@@ -131,10 +118,9 @@ alias hlog='heroku logs --tail -a'
 alias install='paru -S'
 alias kernel='mhwd-kernel -li'
 alias key='gpg --keyserver pool.sks-keyservers.net --recv-keys'
-alias l='ls -CF'
-alias la='ls -alFh'
-alias ll='ls -lFh'
 alias mac='sudo cp $HOME/workspace/ansible/resources/mac_sddm /usr/lib/sddm/sddm.conf.d/default.conf && rm -rf $HOME/.config/xfce4/ && cp -r $HOME/workspace/ansible/resources/xfce-mac $HOME/.config/xfce4 && rm -f $HOME/Desktop/*.desktop; reboot'
+alias ndev='netlify dev'
+alias npush='netlify build && netlify deploy --prod'
 alias open='xdg-open'
 alias pacbac='pacman -Qe > pacman.txt'
 alias pacfiles='pacman -Qlq'
@@ -146,7 +132,6 @@ alias rebuild_aur='pacman -Qmq | yay --rebuild -S -'
 alias red='redshift -x && redshift -O 4000'
 alias remove='paru -R'
 alias restart='sudo systemctl restart'
-alias rg='grep -Iinr --exclude-dir={git,log,assets,build,node_modules,.cache} --exclude=\*.{png,jpg,jpeg,lock}'
 alias rfonts='fc-cache -vf'
 alias sddm_themes='ls /usr/share/sddm/themes'
 alias search='paru -Ss'
@@ -258,3 +243,32 @@ eval $(thefuck --alias)
 # pip executables
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+# gnu replacements
+alias cat='bat'
+alias find='fd'
+alias grep='rg'
+alias l='ls -CF'
+alias la='ls -alFh'
+alias ll='ls -lFh'
+alias lol='lolcate'
+alias lr='ls -R'
+alias lr2='ls -R -L 2'
+alias lr3='ls -R -L 3'
+alias lrl='ls -Rl'
+alias lrl2='ls -Rl -L 2'
+alias lrl3='ls -Rl -L 3'
+alias ls='exa --ignore-glob=".git|node_modules|.cache|.parcel-cache|dist|build"'
+alias lt='ls -T'
+alias lt2='ls -T -L 2'
+alias lt3='ls -T -L 3'
+alias ltl='ls -Tl'
+alias ltl2='ls -Tl -L 2'
+alias ltl3='ls -Tl -L 3'
+alias wg='rg -tweb'
+
+# starship prompt
+eval "$(starship init zsh)"
+
+# ripgrep path
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"

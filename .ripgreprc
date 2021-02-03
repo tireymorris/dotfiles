@@ -1,0 +1,25 @@
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=150
+--max-columns-preview
+
+# Add my 'web' type.
+--type-add
+web:*.{html,css,js,jsx,ts,tsx,json}
+
+# Using glob patterns to include/exclude files or folders
+--glob=!git/*
+--glob=!*.lock
+--glob=!*Library/*
+--glob=!*.vscode*
+--glob=!*.cargo/*
+--glob=!*.vim/*
+--glob=!*.rustup/*
+--glob=!*.*cache
+--glob=!*.*_history
+
+# search hidden files and ignore case
+--hidden
+--ignore-case
+
+# --smart-case
+

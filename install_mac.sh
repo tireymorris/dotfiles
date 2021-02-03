@@ -24,12 +24,12 @@ git clone https://github.com/tireymorris/startpage
 ### lolcate, spotify-tui
 rustup-init
 /Users/$USER/.cargo/bin/rustup toolchain install nightly
-/Users/$USER/.cargo/bin/cargo install lolcate-rs spotify-tui
+/Users/$USER/.cargo/bin/cargo install lolcate-rs
 
 ### npm & packages
 . "/usr/local/opt/nvm/nvm.sh"
 nvm install lts/fermium
-npm i -g yarn http-server gen-secret
+npm i -g yarn http-server gen-secret netlify-cli
 
 ### vundle
 mkdir -p $HOME/.vim/bundle
