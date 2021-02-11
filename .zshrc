@@ -112,6 +112,7 @@ alias enable='sudo systemctl enable'
 alias ezsh='vim $HOME/.zshrc'
 alias fixtime='timedatectl set-timezone America/Chicago && timedatectl set-ntp true'
 alias free='free -h'
+alias fuckit='rm -rf node_modules yarn.lock && yarn && yarn clean'
 alias heroku_init='heroku git:remote -a' # append app name
 alias heroku_push='git push heroku master'
 alias hlog='heroku logs --tail -a'
