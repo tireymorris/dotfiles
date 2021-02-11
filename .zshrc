@@ -152,6 +152,7 @@ alias vpnup='sudo wg-quick up /etc/wireguard/vpn.conf'
 alias wiki='cd /usr/share/doc/arch-wiki/html && http-server -c -1 -o en/Main_page.html'
 alias win='sudo cp $HOME/workspace/ansible/resources/win_sddm /usr/lib/sddm/sddm.conf.d/default.conf && rm -rf $HOME/.config/xfce4/ && cp -r $HOME/workspace/ansible/resources/xfce95 $HOME/.config/xfce4 && cp $HOME/.links/* $HOME/Desktop/ && reboot'
 alias yay='paru'
+alias yr='npx npm-run-all'
 alias ytdl='youtube-dl -i -f mp4'
 alias ytdlp='youtube-dl -i -f mp4 --yes-playlist'
 
