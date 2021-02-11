@@ -25,7 +25,7 @@ setopt appendhistory
 
 # set defaults
 export EDITOR='nvim'
-export BROWSER='/usr/bin/firefox'
+export BROWSER='/usr/bin/google-chrome-stable'
 export LC_ALL=en_US.utf8
 export LANG=en_US.utf8
 
