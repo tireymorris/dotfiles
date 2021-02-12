@@ -29,7 +29,7 @@ rustup-init
 ### npm & packages
 . "/usr/local/opt/nvm/nvm.sh"
 nvm install lts/fermium
-npm i -g yarn http-server gen-secret netlify-cli
+npm i -g yarn http-server gen-secret netlify-cli npm-run-all
 
 ### vundle
 mkdir -p $HOME/.vim/bundle
