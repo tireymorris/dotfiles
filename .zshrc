@@ -25,7 +25,7 @@ setopt appendhistory
 
 # set defaults
 export EDITOR='nvim'
-export BROWSER='/usr/bin/google-chrome-stable'
+export BROWSER='/usr/bin/chromium'
 export LC_ALL=en_US.utf8
 export LANG=en_US.utf8
 
@@ -73,6 +73,8 @@ function pacdate {
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias ap='ansible-playbook'
 alias b='brightnessctl s'
+alias bg='feh --bg-fill'
+alias battery='/bin/cat /sys/class/power_supply/cw2015-battery/capacity'
 alias blu='redshift -x && redshift -O 6000'
 alias brewbak='brew bundle dump -f --file ~/.dotfiles/Brewfile'
 alias brewci='brew install --cask'
@@ -207,7 +209,7 @@ alias gsubi='git submodule init && git submodule update'
 alias hcl='hcl $1 $2'
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # Java
 export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
@@ -237,6 +239,7 @@ export NVM_DIR="$HOME/.nvm"
 
 [[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 [[ -s $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+[[ -s /usr/share/nvm/nvm.sh ]] && source /usr/share/nvm/nvm.sh
 
 
 # npx fallback

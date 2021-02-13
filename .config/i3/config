@@ -12,10 +12,7 @@
 # is used in the bar {} block below.
 set $mod Mod1
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-font pango:FiraCode Nerd Font 12
+font Hack Nerd Font Mono
 
 # Use pactl to adjust volume in PulseAudio.
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -52,7 +49,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -260,7 +257,7 @@ bindsym $mod+shift+d exec redshift -P -O 5500
 
 
 # startup applications
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+ #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec blueman-applet
 exec autocutsel
 
@@ -268,7 +265,8 @@ exec autocutsel
 new_window pixel 0
 gaps inner 10
 gaps outer 5
-gaps top 25
+gaps top 10
+gaps bottom 10
 for_window [class="^.*"] border pixel 0
 for_window [instance=".*Godot.*"] floating enable
 
@@ -287,6 +285,6 @@ client.urgent               $bg-color       $bg-color       $text-color         
 client.background                           $bg-color
 
 # compositor
-exec_always --no-startup-id pkill picom; picom --no-use-damage
-exec_always --no-startup-id pkill dunst; dunst
-exec_always --no-startup-id pkill superpaper; superpaper
+# exec_always --no-startup-id pkill picom; picom --no-use-damage
+# exec_always --no-startup-id pkill dunst; dunst
+# exec_always --no-startup-id pkill superpaper; superpaper
