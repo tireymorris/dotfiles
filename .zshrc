@@ -26,8 +26,8 @@ setopt appendhistory
 # set defaults
 export EDITOR='nvim'
 export BROWSER='/usr/bin/chromium'
-export LC_ALL=en_US.utf8
-export LANG=en_US.utf8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 ssh_accept() {
     ssh-keyscan -H $1 >> $HOME/.ssh/known_hosts

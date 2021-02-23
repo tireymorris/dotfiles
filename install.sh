@@ -4,7 +4,6 @@ ALL=(
   adobe-source-code-pro-fonts
   alsa-firmware
   alsa-utils
-  ap6256-firmware
   arandr
   arch-wiki-docs
   archlinux-wallpaper
@@ -12,6 +11,7 @@ ALL=(
   autocutsel
   autojump-rs
   base
+  bat
   bdf-unifont
   blueberry
   browsh-bin
@@ -32,8 +32,10 @@ ALL=(
   dosfstools
   epdfview
   equilux-theme
+  exa
   fail2ban
   fakeroot
+  fd
   feh
   filelight
   git
@@ -54,11 +56,10 @@ ALL=(
   libvirt
   libxfont2
   light
-  linux-pbp
   lxappearance-gtk3
   man-db
+  mdcat
   mosh
-  mullvad-vpn-bin
   neofetch
   neovim
   nerd-fonts-fira-code
@@ -80,11 +81,10 @@ ALL=(
   paru-bin
   paru-bin
   pavucontrol
-  pbp-keyboard-hwdb
-  pbp-keyboard-hwdb
   plank
   playerctl
   powerline-fonts
+  procs
   pulseaudio
   pulseaudio-alsa
   pulseaudio-bluetooth
@@ -93,6 +93,7 @@ ALL=(
   python-pynvim
   python2
   redshift
+  ripgrep
   ristretto
   rofi
   rustup
@@ -105,13 +106,13 @@ ALL=(
   thefuck
   thunar
   tlp
+  tokei
   ttf-dejavu
   ttf-font-awesome-4
   ttf-liberation
   ttf-mac-fonts
   ttf-symbola
   ttf-ubuntu-font-family
-  uboot-pbp
   udisks2
   unicode-emoji
   unzip
@@ -135,16 +136,15 @@ ALL=(
 )
 
 function install_all {
-  set -e
   paru -S --needed $ALL
   # paru -Q $ALL
   . "/usr/share/nvm/nvm.sh"
   mkdir -p $HOME/.config $HOME/.vim/bundle
-  # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   nvm install lts/fermium
   npm i -g yarn http-server gen-secret netlify-cli npm-run-all
   rustup toolchain install nightly
-  cargo install lolcate-rs spotify-tui exa bat fd-find ripgrep procs tokei mdcat starship du-dust
+  cargo install spotify-tui starship du-dust
 }
 
 function clean {
