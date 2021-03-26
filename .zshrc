@@ -238,7 +238,6 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # npx fallback
-source <(npx --shell-auto-fallback zsh)
 
 eval $(thefuck --alias)
 
