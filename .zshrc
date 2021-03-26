@@ -266,7 +266,7 @@ alias lt3='ls -T -L 3'
 alias ltl='ls -Tl'
 alias ltl2='ls -Tl -L 2'
 alias ltl3='ls -Tl -L 3'
-alias wg='rg -tweb'
+alias wrg='rg -tweb'
 
 # starship prompt
 eval "$(starship init zsh)"
